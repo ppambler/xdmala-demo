@@ -7,6 +7,12 @@ export default (target) => {
       yield item
     }
   }
+  target.remove = (todo, value) => {
+    let index = todo.indexOf(value)
+    if (index > -1) {
+      todo.splice(index, 1);
+    }
+  }
   // target.generator = function (arr) {
   //   var i = 0
 

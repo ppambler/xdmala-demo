@@ -12,6 +12,7 @@ class Todo {
     this.oLogList = this.oTodo.getElementsByClassName('log-list')[0]
 
     this.log = []
+    this.todo = []
     // console.log(Todo.generator)
     // console.log(this.log)
     this.iterator = Todo.generator(this.log)
@@ -54,11 +55,14 @@ class Todo {
     // console.log(oParent) // li元素
     // console.log(val) //内容
     this.addLog(val, 'remove')
+    Todo.remove(this.todo, val)
+    console.log(this.todo)
     this._handleItem('remove', {
       val,
       iteratorVal: this.iterator.next().value,
       oParent
     })
+    console.log(this.log)
   }
   // _handleItem这个函数命名加了_表示这是额外扩展的函数，不过一般都用于私有函数的命名！
   // 总之，这样的函数在最初实现功能的时候是咩有的，或者是这是为了重构代码而存在的函数！咩有这个函数也能实现相应的功能！
@@ -87,14 +91,15 @@ class Todo {
       }
       next()
     }, (next) => {
-      console.log(this)
-      if (this._checkItemExist(val, this.log) === -1) {
+      // console.log(this)
+      if (this._checkItemExist(val, this.todo) === -1) {
         alert('已存在该项，请不要重复添加！')
         return false
       }
       next()
     }, () => {
       this.addLog(val, 'add')
+      this.todo.push(val)
       this._handleItem('add', {
         val,
         iteratorVal: this.iterator.next().value
