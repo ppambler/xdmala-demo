@@ -79,4 +79,4 @@ Tab.prototype._slidePage = function (index) {
 
 // 除此之外你可能还会有更多的模式，如动画翻页模式哈！
 
-var xxx = new Tab('slide')
+var xxx = new Tab('fade')

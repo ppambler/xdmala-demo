@@ -32,3 +32,5 @@ xiaoming.drink()
 
 xiaohong.intro()
 xiaohong.eat()
+
+console.log(xiaoming)
