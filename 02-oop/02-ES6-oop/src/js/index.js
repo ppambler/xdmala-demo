@@ -1,5 +1,6 @@
 import { People } from '../classes/People.js'
 import { Tab } from '../classes/Tab.js'
+import { Student } from '../classes/Student'
 import '../css/tab.css'
 
 var xiaoming = new People('小明', 180, 130)
@@ -14,3 +15,9 @@ xiaohong.eat()
 console.log(xiaoming)
 
 new Tab('slide')
+
+var xiao = new Student('小老弟', 175, 70, 23, '数学')
+xiao.study()
+xiao.intro()
+
+console.log(xiao)
