@@ -1,6 +1,7 @@
 import { People } from '../classes/People.js'
 import { Tab } from '../classes/Tab.js'
 import { Student } from '../classes/Student'
+import { IndexModel } from '../models/index'
 import '../css/tab.css'
 
 var xiaoming = new People('小明', 180, 130)
@@ -21,3 +22,9 @@ xiao.study()
 xiao.intro()
 
 console.log(xiao)
+
+const indexModel = new IndexModel()
+
+indexModel.getGoodsList().then((res) => {
+  console.log(res)
+})

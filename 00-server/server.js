@@ -14,6 +14,7 @@ var app = http.createServer(function (req, res) {
     (async function () {
       data = await smzdm(`${path}`)
       res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Access-Control-Allow-Origin', '*')
       res.end(JSON.stringify(data, null, 3));
     })()
   } else if (!path) {
