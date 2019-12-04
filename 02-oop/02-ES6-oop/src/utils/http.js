@@ -1,8 +1,10 @@
 import tools from './tools'
 import config from './config.js'
 console.log(config)
+const doAjax = Symbol('doAjax')
+console.log()
 class HTTP {
-  _doAjax(options) {
+  [doAjax](options) {
     let o = window.XMLHttpRequest ?
       new XMLHttpRequest() :
       new ActiveXObject('Microsoft.XMLHTTP'); //ie5、ie6使用
@@ -86,11 +88,11 @@ class HTTP {
   }
 
   ajax(opt) {
-    this._doAjax(opt)
+    this[doAjax](opt)
   }
 
   post(url, data, dataType, successCB, errorCB, completeCB) {
-    this._doAjax({
+    this[doAjax]({
       type: 'POST',
       url: url,
       data: data,
@@ -102,7 +104,7 @@ class HTTP {
   }
 
   get(url, dataType, successCB, errorCB, completeCB) {
-    this._doAjax({
+    this[doAjax]({
       type: 'GET',
       url: url,
       dataType: dataType,
