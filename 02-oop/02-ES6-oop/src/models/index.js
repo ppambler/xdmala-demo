@@ -8,7 +8,7 @@ class IndexModel extends HTTP {
       console.log(this)
       console.log(this['Symbol(doAjax)'])
       console.log(this['xxx'])
-      console.log(this.Symbol(doAjax))
+      // console.log(this.Symbol(doAjax))
       this.ajax({
         url: 'smzdm/tushuyinxiang',
         type: 'GET',
